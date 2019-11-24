@@ -1,5 +1,6 @@
   
-    $('#js-shopping-list-form').on('submit', function(event){
+// this allows users to add new items to the shopping list //
+$('#js-shopping-list-form').on('submit', function(event){
         event.preventDefault();
         const newItem = $('#shopping-list-entry').val();
         $('.shopping-list').append(`<li>
@@ -14,34 +15,18 @@
         </div>
         </li>`);
         $('#shopping-list-entry').val('');
-        
+    });
+
+// this allows users to delete items from the shopping list //
+$('.shopping-item-delete').on('click', function(event) {
+    event.preventDefault();
+    this.closest('li').remove();
+     });  
+
+// this allows users to check off items or uncheck already checked off items from the shopping list//
+$('.shopping-item-toggle').on('click', function(event){
+    event.preventDefault();
+    $('.shopping-item').toggleClass("shopping-item__checked");
     });
 
 
-/*   $("#shoppingForm").on('submit', function(e){
-	var text = $('#addToList').val();
-  $('#shoppingList').append($('<li>').append(text));
-  $('#addToList').val('');
-  e.preventDefault();
-});
-
-$('#shoppingList').on('dblclick', 'li', function(){
-	$(this).remove();
-});
-        $(event.currentTarget).find('#shopping-list-entry');
-
-        $(".js-display-user-text").text(`user text is:  ${newShoppingItem.val()}`);
-        newShoppingItem.val("");
-
-      );
-    });
-    
-    $('ul').on('click', 'li', function(event) {
-      this.remove();
-    });
-  });
-  
-  //.submit(), preventDefault(), toggleClass() (function that checks each item),
-   and closest() (function that deletes, also use remove).
-
-  // allows users to add, check, uncheck, and remove items from a shopping list. 
