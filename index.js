@@ -15,18 +15,21 @@ $('#js-shopping-list-form').on('submit', function(event){
         </div>
         </li>`);
         $('#shopping-list-entry').val('');
+        console.log('add an item');
     });
 
 // this allows users to delete items from the shopping list //
-$('.shopping-item-delete').on('click', function(event) {
+$(document).on('click', '.shopping-item-delete', function(event) {
     event.preventDefault();
-    this.closest('li').remove();
+    $(this).closest('li').remove();
+    console.log('delete an item');
      });  
 
 // this allows users to check off items or uncheck already checked off items from the shopping list//
-$('.shopping-item-toggle').on('click', function(event){
+$(document).on('click', '.shopping-item-toggle', function(event){
     event.preventDefault();
-    $('.shopping-item').toggleClass("shopping-item__checked");
+    $(this).closest('li').find('.shopping-item').toggleClass("shopping-item__checked");
+    console.log('check and uncheck an item');
     });
 
 
